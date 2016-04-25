@@ -43,6 +43,7 @@ public class JPAWorkItemHandler extends AbstractLogOrThrowWorkItemHandler implem
 	private ClassLoader classloader;
 	
 	public  JPAWorkItemHandler(String persistenceUnit, ClassLoader cl) {
+		setLogThrownException(true);
         ClassLoader tccl = Thread.currentThread().getContextClassLoader();
         try {
             Thread.currentThread().setContextClassLoader(cl);
@@ -109,7 +110,7 @@ public class JPAWorkItemHandler extends AbstractLogOrThrowWorkItemHandler implem
 
 	@SuppressWarnings("unchecked")
 	private List<Object> doQuery(String queryName, Object queryParams) {
-		logger.info("About to run query {0}", queryName);
+		logger.info("About to run query {}", queryName);
 		Map<String, Object> params;
 		Query namedQuery = em.createQuery(queryName);
 		if(queryParams == null) {
@@ -137,7 +138,9 @@ public class JPAWorkItemHandler extends AbstractLogOrThrowWorkItemHandler implem
 	private Object doGet(String clazz, Object id) {
 		Class<?> type;
 		try {
-			type = classloader.loadClass(clazz);
+			
+			type = Class.forName(clazz, false, classloader);
+			//type = classloader.loadClass(clazz);
 		} catch (ClassNotFoundException e) {
 			throw new IllegalArgumentException("Can't load type " + clazz);
 		}
@@ -157,5 +160,4 @@ public class JPAWorkItemHandler extends AbstractLogOrThrowWorkItemHandler implem
 	public void abortWorkItem(WorkItem wi, WorkItemManager wim) {
 		wim.abortWorkItem(wi.getId());
 	}
-
 }
