@@ -23,20 +23,20 @@ public class JPAWorkItemHandler extends AbstractLogOrThrowWorkItemHandler implem
 	
 	private static final Logger logger = LoggerFactory.getLogger(JPAWorkItemHandler.class);
 
-	private static final String P_RESULT = "Result";
-	private static final String P_TYPE = "Type";
-	private static final String P_ID = "Id";
-	private static final String P_ENTITY = "Entity";
-	private static final String P_ACTION = "Action";
-	private static final String p_QUERY = "Query";
-	private static final String P_QUERY_PARAMS = "QueryParameters";
-	private static final String P_QUERY_RESULTS = "QueryResults";
+	public static final String P_RESULT = "Result";
+	public static final String P_TYPE = "Type";
+	public static final String P_ID = "Id";
+	public static final String P_ENTITY = "Entity";
+	public static final String P_ACTION = "Action";
+	public static final String p_QUERY = "Query";
+	public static final String P_QUERY_PARAMS = "QueryParameters";
+	public static final String P_QUERY_RESULTS = "QueryResults";
 	
-	private static final String CREATE_ACTION = "CREATE";
-	private static final String UPDATE_ACTION = "UPDATE";
-	private static final String GET_ACTION = "GET";
-	private static final String DELETE_ACTION = "DELETE";
-	private static final String QUERY_ACTION = "QUERY";
+	public static final String CREATE_ACTION = "CREATE";
+	public static final String UPDATE_ACTION = "UPDATE";
+	public static final String GET_ACTION = "GET";
+	public static final String DELETE_ACTION = "DELETE";
+	public static final String QUERY_ACTION = "QUERY";
 	
 	private EntityManagerFactory emf;
 	private EntityManager em;
