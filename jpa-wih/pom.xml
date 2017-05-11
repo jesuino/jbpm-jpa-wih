@@ -73,5 +73,12 @@
 			<artifactId>jboss-transaction-api_1.1_spec</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- Persistence -->
+		<dependency>
+            		<groupId>javax.persistence</groupId>
+		        <artifactId>persistence-api</artifactId>
+	            	<version>1.0.2</version>
+            		<scope>provided</scope>
+        	</dependency>
 	</dependencies>
 </project>
